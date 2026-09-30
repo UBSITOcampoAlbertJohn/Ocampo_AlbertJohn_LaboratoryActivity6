@@ -5,9 +5,13 @@ export interface Pokemon {
 
 export interface GymLeader {
   name: string;
-  type: string;
+  town?: string;
+  location?: string;
+  specialty?: string;
+  type?: string;
   badge: string;
-  location: string;
-  typeColor: string;
-  team: Pokemon[];
+  badgeUrl?: string;
+  typeColor?: string;
+  pokemonTeam?: string[];
+  team?: Pokemon[];
 }

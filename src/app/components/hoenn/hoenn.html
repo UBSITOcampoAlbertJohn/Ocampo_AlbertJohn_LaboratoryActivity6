@@ -1,0 +1,13 @@
+<div class="container my-4">
+  <h2 class="text-danger border-bottom border-danger border-3 pb-2 mb-4 fw-bold">
+    Hoenn Region Gym Leaders
+  </h2>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    @for (leader of gymLeaders; track leader.name) {
+      <div class="col">
+        <app-gym-card [leader]="leader"></app-gym-card>
+      </div>
+    }
+  </div>
+</div>
