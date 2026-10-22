@@ -1,0 +1,69 @@
+<div class="container my-4">
+  <h2 class="text-primary border-bottom border-primary border-3 pb-2 mb-4 fw-bold">
+    🏪 PokéMart Store
+  </h2>
+
+  <div class="row">
+    <!-- Store Items -->
+    <div class="col-md-7">
+      <h4>Available Items</h4>
+      <div class="row row-cols-1 row-cols-md-2 g-3 mt-1">
+        @for (item of pokemonService.martItems; track item.id) {
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">{{ item.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-success">₽{{ item.price }}</h6>
+                <p class="card-text text-muted small">{{ item.description }}</p>
+                <button class="btn btn-sm btn-outline-primary w-100" (click)="pokemonService.addToCart(item)">
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Shopping Cart -->
+    <div class="col-md-5 mt-4 mt-md-0">
+      <div class="card shadow">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">🛒 Shopping Cart</h5>
+          <span class="badge bg-primary fs-6">{{ pokemonService.totalCartCount() }} Items</span>
+        </div>
+        <div class="card-body">
+          @if (pokemonService.cart().length === 0) {
+            <p class="text-muted text-center my-4">Your cart is empty.</p>
+          } @else {
+            <ul class="list-group list-group-flush mb-3">
+              @for (cartItem of pokemonService.cart(); track cartItem.item.id) {
+                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                  <div>
+                    <span class="fw-bold">{{ cartItem.item.name }}</span>
+                    <small class="text-muted ms-2">(x{{ cartItem.quantity }})</small>
+                  </div>
+                  <div>
+                    <span class="me-2 text-success">₽{{ cartItem.item.price * cartItem.quantity }}</span>
+                    <button class="btn btn-sm btn-danger py-0 px-2" (click)="pokemonService.removeFromCart(cartItem.item.id)">
+                      &times;
+                    </button>
+                  </div>
+                </li>
+              }
+            </ul>
+
+            <div class="border-top pt-3 d-flex justify-content-between align-items-center fw-bold fs-5">
+              <span>Total Price:</span>
+              <span class="text-success">₽{{ pokemonService.totalCartAmount() }}</span>
+            </div>
+
+            <button class="btn btn-danger w-100 mt-3" (click)="pokemonService.clearCart()">
+              Clear Cart
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
