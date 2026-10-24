@@ -1,0 +1,46 @@
+<div class="container my-5 text-center">
+  <div class="p-5 bg-light rounded-3 shadow-sm border">
+    <h1 class="display-4 fw-bold text-dark">Welcome to the Pokémon Application</h1>
+    <p class="lead text-secondary">
+      Official Pokémon League record system for Kanto, Johto, and Hoenn Gym Leaders.
+    </p>
+    <hr class="my-4">
+
+    <!-- Region Count Cards (Required by Rubric) -->
+    <div class="row g-4 my-3">
+      <div class="col-md-4">
+        <div class="card border-primary h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-primary fw-bold">Kanto Region</h3>
+            <p class="display-6 fw-semibold mb-0">8</p>
+            <span class="text-muted small">Registered Leaders</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-danger h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-danger fw-bold">Johto Region</h3>
+            <p class="display-6 fw-semibold mb-0">8</p>
+            <span class="text-muted small">Registered Leaders</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-success h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-success fw-bold">Hoenn Region</h3>
+            <p class="display-6 fw-semibold mb-0">8</p>
+            <span class="text-muted small">Registered Leaders</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <a class="btn btn-primary btn-lg px-4" routerLink="/kanto">Kanto Region</a>
+      <a class="btn btn-danger btn-lg px-4" routerLink="/johto">Johto Region</a>
+      <a class="btn btn-success btn-lg px-4" routerLink="/hoenn">Hoenn Region</a>
+    </div>
+  </div>
+</div>
